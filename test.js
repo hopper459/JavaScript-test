@@ -155,7 +155,6 @@
         
         event.formModel.data.flag_branding = true;            
         event.formModel.data.date_branding = today;
-        
         setCallingCodeToPhoneNumber(event);
 
          function setCallingCodeToPhoneNumber(event) {
@@ -171,7 +170,7 @@
                     var callingCode;
                     var token;
                     
-                    var apiendpoint = 'https://api.belcorp.biz';
+                    var apiendpoint = 'https://api-qa.belcorp.biz';
                     var user = 'interfacesIKU';
                     //QA
                     var password = 'vjm8GduiaTUpqT17gYW4jYqk8S88oC5DoRg2/WJZvpg=';
@@ -376,14 +375,14 @@
                 }
             });           
         }
-              
+        
+        console.log("fine!");                
         var today = new Date();
-      
+        
 		var dateString = new Date(today.getTime() - (today.getTimezoneOffset() * 60000 ))
                     .toISOString()
                     .split(".")[0];
-                           
-      
+                      
       var  batch =  '--batch\n' +
 		            'content-type:multipart/mixed; boundary=changeset_batch\n' +
 		            '\n' + 
@@ -417,9 +416,9 @@
         //console.log('x_csrf_token: -> '+ x_csrf_token);
         //console.log("dateString: -> " + dateString);
         //console.log("uid:  -> " + uid);
-        //console.log("reason:  -> " + reason);       
+        console.log("reason:  -> " + reason);       
         //console.log("batch: -> " + batch);
-                                        
+                    
         if(x_csrf_token){     	
         	
             //debugger;
@@ -455,9 +454,6 @@
                     console.log(xhr);        
                 }
             });
-        }
-        else {
-        	console.log("token:  -> " + x_csrf_token);
         }
 
     },
